@@ -9,14 +9,14 @@ const productsList = ref([]);
 const productsClient = new ProductsClient();
 
 function loadNextPage() {
-    productsClient.list(shownPages.value + 1, pageSize.value).then((result) => {
+    productsClient.list(shownPages.value + 1, pageSize.value).then((newProducts) => {
       shownPages.value += 1;
-      console.log('Shown pages:', shownPages, " Result: ", result);
-      //productsList.value.push(result);
+      const oldProductsList = productsList.value;
+      productsList.value = [ ...oldProductsList, ...newProducts ];
     });
 }
 
-onMounted(() => loadNextPage);
+onMounted(() => loadNextPage());
 
 </script>
 
@@ -26,6 +26,7 @@ onMounted(() => loadNextPage);
   </div>
 
   <ProductsList :products="productsList" />
+  <button @click="loadNextPage()">Meer laden...</button>
 </template>
 
 <style>

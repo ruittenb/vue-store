@@ -23,16 +23,17 @@ onMounted(() => loadNextPage());
 <template>
   <div class="products">
     <h1>Wij hebben de volgende spullen in ons assortiment</h1>
+    <ProductsList :products="productsList" />
+    <button @click="loadNextPage()">Meer laden...</button>
   </div>
 
-  <ProductsList :products="productsList" />
-  <button @click="loadNextPage()">Meer laden...</button>
 </template>
 
 <style>
 .products {
   margin-top: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 </style>

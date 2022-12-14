@@ -24,7 +24,9 @@ export default class ProductsAdapter {
    * @param {number} pageNr - the page number to fetch (starts at 1)
    * @param {number} pageSize - the number of products per page
    * @return {null|Response} - response object as returned by superagent,
-   *     or null in case of error (FIXME)
+   *     or null in case of error
+   *
+   *  TODO: return the response as: Either<Error, Response> object
    */
   async list(pageNr, pageSize) {
     try {

@@ -1,6 +1,7 @@
-import superagent from "superagent";
+import superagent from 'superagent';
 
 export default class ProductsAdapter {
+
   constructor() {
     this.proto = import.meta.env.VITE_PRODUCTS_API_PROTO;
     this.host = import.meta.env.VITE_PRODUCTS_API_HOST;
@@ -20,8 +21,8 @@ export default class ProductsAdapter {
   /**
    * Fetches a list of products from the Products API
    *
-   * @param {Number} pageNr - the page number to fetch (starts at 1)
-   * @param {Number} pageSize - the number of products per page
+   * @param {number} pageNr - the page number to fetch (starts at 1)
+   * @param {number} pageSize - the number of products per page
    * @return {null|Response} - response object as returned by superagent,
    *     or null in case of error (FIXME)
    */
@@ -34,9 +35,9 @@ export default class ProductsAdapter {
           page: pageNr,
           limit: pageSize,
         })
-        .set("X-API-Key", this.apiKey) // unused by this API but we already support it
-        .type("json")
-        .accept("json");
+        .set('X-API-Key', this.apiKey) // unused by this API but we already support it
+        .type('json')
+        .accept('json');
     } catch (error) {
       return null; // TODO
     }

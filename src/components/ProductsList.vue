@@ -1,6 +1,6 @@
 <script setup>
-import ProductTile from "../components/ProductTile.vue";
-import ProductsClient from "../clients/ProductsClient";
+import ProductTile from '../components/ProductTile.vue';
+import ProductsClient from '../clients/ProductsClient';
 
 let productsClient = new ProductsClient();
 productsClient.list(1, 10).then((result) => {

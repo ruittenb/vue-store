@@ -1,4 +1,4 @@
-import ProductsAdapter from "../adapters/productsAdapter";
+import ProductsAdapter from '../adapters/ProductsAdapter';
 
 export default class ProductsClient {
   constructor() {
@@ -16,7 +16,7 @@ export default class ProductsClient {
   async list(pageNr, pageSize) {
     try {
       const response = await this.adapter.list(pageNr, pageSize);
-      if (response === null || typeof response !== "object") {
+      if (response === null || typeof response !== 'object') {
         return null; // TODO
       }
       if (response.statusCode !== 200) {

@@ -16,13 +16,11 @@ export default class ProductsClient {
   async list(pageNr, pageSize) {
     try {
       const response = await this.adapter.list(pageNr, pageSize);
-      if (response === null || typeof response !== 'object') {
-        return null; // TODO
-      }
       if (response.statusCode !== 200) {
         return null; // TODO
       }
-      return { ...response, data: JSON.parse(response.text) };
+      const start = (pageNr - 1) * pageSize;
+      return response?.body?.data?.splice(start, pageSize);
     } catch (error) {
       return null; // TODO
     }

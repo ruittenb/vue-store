@@ -14,11 +14,12 @@ import HelloWorld from "./components/HelloWorld.vue";
     />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="Spullen B.V." />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">Welkom</RouterLink>
+        <RouterLink to="/products">Producten</RouterLink>
+        <RouterLink to="/about">Over ons</RouterLink>
       </nav>
     </div>
   </header>
@@ -77,6 +78,7 @@ nav a:first-of-type {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 
   nav {
